@@ -7,42 +7,60 @@
     font-family: 'Rubik', sans-serif;
 }
 
-div.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 6rem;
-    width: 100vw;
+.navbar {
     background: #304353;
+    color: #fff;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    font-size: 18px;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
-
-div.logo {
-    font-size: 1.5rem;
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+}
+.navbar a.logo {
     color: #bcc3c7;
+    float: left;
+    height: inherit;
+    line-height:inherit;
+    padding: 0 30px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
-
-ul.nav-links {
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-ul li {
-    margin: 0 2vw;
+.navbar ul {
+    float: right;
     list-style: none;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 50px;
+}
+.navbar ul li {
+    display: inline-block;
     font-size: 1.1rem;
 }
-
-ul li a {
-    text-decoration: none;
+.navbar ul li a {
     color: #88949B;
-    padding: 0.5vw;
+    display: block;
+    text-align: center;
+    min-width: 120px;
+    padding: 0 30px;
+}
+.navbar ul li a:hover {
+    color: #fff;
+}
+.navbar .navbar-toggler {
+    display: none;
 }
 
-ul li a:hover {
-    color: #304353;
-    background: #fff;
-    padding: 0.5rem;
-}
+/*default styles*/
 
 div.hero-section {
     background: #304353;
@@ -208,6 +226,7 @@ div.box1 h5 {
     font-size: 1rem;
 }
 
+
 div.gallery-section {
     background: #fff;
     padding: 4rem;
@@ -246,7 +265,6 @@ div.img img {
     width: 250px;
     height: 180px;
 }
-
 div.footer {
     background: #304353;
     padding: 3rem;
@@ -344,4 +362,261 @@ div.footer h6 {
     color: #88949B;
     font-size: 1rem;
     padding-top: 6rem;
+}
+
+
+
+/* responsiveness*/
+@media (max-width: 991px) {
+    .navbar ul {
+        padding: 0 10px;
+    }
+    .navbar ul li a {
+        min-width: 100px;
+        padding: 0 20px;
+    }
+}
+@media (max-width: 767px) {
+    .navbar {
+        padding: 0;
+    }
+    .navbar ul {
+        width: 100%;
+        padding: 0;
+        background-color: #304353;
+        height: 100vh;
+        max-height: 0;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+    }
+    .navbar ul.open {
+        max-height: 100vh;
+    }
+    .navbar ul li {
+        width: 100%;
+    }
+    .navbar ul li a {
+        padding: 0;
+    }
+    .navbar .navbar-toggler {
+        display: block;
+        position: absolute;
+        height: 40px;
+        top: 20px;
+        right: 20px;
+        background-color: transparent;
+        color: #fff;
+        outline: none;
+        padding: 0 5px;
+        cursor: pointer;
+    }
+    .navbar .navbar-toggler span,
+    .navbar .navbar-toggler span::before,
+    .navbar .navbar-toggler span::after {
+        display: block;
+        content: '';
+        background-color: #fff;
+        height: 3px;
+        width: 28px;
+        border-radius: 5px;
+        transition: all .5s ease-in-out;
+    }
+    .navbar .navbar-toggler span::before {
+        transform: translateY(-8px);
+    }
+    .navbar .navbar-toggler span::after {
+        transform: translateY(5px);
+    }
+    .navbar .navbar-toggler.open-navbar-toggler span {
+        background-color: transparent;
+    }
+    .navbar .navbar-toggler.open-navbar-toggler span::before {
+        transform: translateY(0px) rotate(45deg);
+    }
+    .navbar .navbar-toggler.open-navbar-toggler span::after {
+        transform: translateY(-3px) rotate(-45deg);
+    }
+
+    /*default responsive*/
+
+    div.hero-section {
+        background: #304353;
+        padding: 8rem 5rem;
+    }
+
+    
+    div.hero-content-heading h3 {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: #bcc3c7;
+    }
+    
+    div.hero-content-heading p {
+        text-align: center;
+        padding-top: 0.7rem;
+        color: #88949B;
+        font-size: .8rem;
+        letter-spacing: 2px;
+        font-weight: 350;
+    }
+    
+    div.hero-content-btn {
+        display: block;
+        text-align: center;
+        padding-top: 2rem;
+    }
+    
+    div.hero-content-btn a {
+        background: #E44C65;
+        text-decoration: none;
+        color: #bcc3c7;
+        font-size: 0.9rem;
+        padding: 10px 30px;
+        border-radius: 3px;
+        letter-spacing: 2px;
+    }
+    
+    div.hero-background {
+        background: #f0f0f0;
+        padding: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    div.background {
+        background: #fff;
+        box-shadow: 2px 2px 15px 0 rgb(135 135 135 / 40%);
+        padding: 10px 20px;
+        padding-left: .4rem;
+        width: 550px;
+        height: 250px;
+        position: relative;
+    }
+    
+    div.background h4 {
+        padding: 2rem;
+        color: #555657;
+        padding-left: .4rem;
+        font-size: 1rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    
+    div.background p {
+        color: #A6A5AA;
+        padding-left: .4rem;
+        font-size: 0.8rem;
+
+    }
+    
+    div.hero-background-pos {
+        position: absolute;
+        right: 0px;
+        left: 70%;
+        background: #fff;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        box-shadow: 2px 2px 15px 0 rgb(135 135 135 / 40%);
+    }
+    
+    div.snapshot-team {
+        background: #f0f0f0;
+        text-align: center;
+        padding-top: 2rem;
+    }
+    
+    div.snapshot-team h2 {
+        color: #555657;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    
+    div.snapshot-team p {
+        color: #A6A5AA;
+        font-size: 1rem;
+        letter-spacing: 2px;
+        padding-top: 0.8rem;
+    }
+    
+    div.snapshot-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f0f0f0;
+        padding: 4rem 6rem;
+    }
+    
+    div.snapshot-box-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    div.box1 {
+        background: #fff;
+        padding: 10px 20px;
+        width: 220px;
+        height: 230px;
+        margin: 10px;
+        border-radius: 2px;
+        box-shadow: 2px 2px 15px 0 rgb(135 135 135 / 40%);
+    }
+    
+    div.box3 {
+        background: #304353;
+        padding: 10px 20px;
+        width: 220px;
+        height: 230px;
+        margin: 10px;
+        border-radius: 2px;
+        box-shadow: 2px 2px 15px 0 rgb(135 135 135 / 40%);
+    }
+    
+    div.box3 h5 {
+        text-align: center;
+        padding-top: 2rem;
+        color: #E44C65;
+        font-size: 1rem;
+    }
+    
+    div.circle {
+        display: flex;
+        margin: 0 auto;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: #bcc3c7;
+        margin-top: 2rem;
+        
+    }
+    
+    div.box1 h5 {
+        text-align: center;
+        padding-top: 2rem;
+        color: #E44C65;
+        font-size: 1rem;
+    }
+    div.hero-background-pos {
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    div.background {
+        background: #fff;
+        box-shadow: 2px 2px 15px 0 rgb(135 135 135 / 40%);
+        padding: 10px 20px;
+        padding-left: .4rem;
+        width: 550px;
+        height: 350px;
+        position: relative;
+    }
+    div.hero-background-pos {
+        display: none;
+    }
+
 }
